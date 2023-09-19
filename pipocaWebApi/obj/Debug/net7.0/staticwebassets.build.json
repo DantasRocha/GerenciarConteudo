@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ouHIpuAKoD6cPt40TJ5vXrOMfw7/OeibwkY7ROp20C0=",
+  "Source": "pipocaWebApi",
+  "BasePath": "_content/pipocaWebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

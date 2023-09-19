@@ -1,12 +1,7 @@
 using eCommerceWebApi.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using MySql.EntityFrameworkCore.Extensions;
-//using MySql.Data.MySqlClient;
-//using MySql.EntityFrameworkCore.Extensions;
 
-//using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
-//using Pomelo.EntityFrameworkCore;
-//using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 

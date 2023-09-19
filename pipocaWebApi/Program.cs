@@ -24,7 +24,7 @@ builder.Services.AddSwaggerGen();
 
 
 
-//https://jasonwatmore.com/post/2022/03/25/net-6-connect-to-mysql-database-with-entity-framework-core
+
 
 
 var app = builder.Build();

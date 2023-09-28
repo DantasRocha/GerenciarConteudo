@@ -1,19 +1,27 @@
-using eCommerceWebApi.Models;
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
-
-
-namespace eCommerceWebApi.DataAccess
+using pipocaWebApi;
+public partial class DataContext : DbContext
 {
 
+    protected readonly IConfiguration Configuration;
 
-    public class DataContext : DbContext
+    public DataContext(IConfiguration configuration)
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
-        {
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-
-        }
-        public DbSet<User> Users { get; set; }
+        Configuration = configuration;
     }
+
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{    
+     if (!optionsBuilder.IsConfigured){            
+             var connectionString = Configuration.GetConnectionString("Default");
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+     }
+   
+}
+
+ public DbSet<User> Users { get; set; }
+ public DbSet<Conteudo> Conteudos { get; set; }
+
+
 }

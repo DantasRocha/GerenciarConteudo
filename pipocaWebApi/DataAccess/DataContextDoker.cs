@@ -1,7 +1,7 @@
 
 
 using Microsoft.EntityFrameworkCore;
-using eCommerceWebApi.Models;
+using pipocaWebApi;
 using System.Globalization;
 
 
@@ -18,7 +18,7 @@ public class DataContext2 : DbContext
     {
         // connect to mysql with connection string from app settings
         var connectionString = Configuration.GetConnectionString("Default");
-        //options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        options.UseMySQL(connectionString);
     }
 
     public DbSet<User> Users { get; set; }

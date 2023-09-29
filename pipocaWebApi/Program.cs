@@ -6,7 +6,7 @@ using MySql.EntityFrameworkCore.Infrastructure;
 using pipocaWebApi;
 
 var builder = WebApplication.CreateBuilder(args);
-//ConfigureServices(builder.Services);
+ConfigureServices(builder.Services);
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -44,24 +44,24 @@ void ConfigureServices7(IServiceCollection services)
 
 
 
-void ConfigureServices3(IServiceCollection services){
-            string? connectionString = builder.Configuration.GetConnectionString("Default");
-            MySqlConnection connection = new(connectionString);
-            builder.Services.AddDbContext<DataContext>(
-                options =>
-                    options.UseMySql(
-                        connection,
-                        ServerVersion.AutoDetect(connectionString),
-                        ServerOptions =>
-                        ServerOptions.MigrationsHistoryTable(
-                            tableName: HistoryRepository.DefaultTableName,
-                            schema: "asp")
-                        .SchemaBehavior(
-                            (Pomelo.EntityFrameworkCore.MySql.Infrastructure.MySqlSchemaBehavior)MySqlSchemaBehavior.Translate,
-                            (schema, table) => $"{schema}_{table}")
-            ));
+// void ConfigureServices3(IServiceCollection services){
+//             string? connectionString = builder.Configuration.GetConnectionString("Default");
+//             MySqlConnection connection = new(connectionString);
+//             builder.Services.AddDbContext<DataContext>(
+//                 options =>
+//                     options.UseMySQL(
+//                         connection,
+//                         ServerVersion.AutoDetect(connectionString),
+//                         ServerOptions =>
+//                         ServerOptions.MigrationsHistoryTable(
+//                             tableName: HistoryRepository.DefaultTableName,
+//                             schema: "asp")
+//                         .SchemaBehavior(
+//                             (Pomelo.EntityFrameworkCore.MySql.Infrastructure.MySqlSchemaBehavior)MySqlSchemaBehavior.Translate,
+//                             (schema, table) => $"{schema}_{table}")
+//             ));
 
-}
+// }
 //  builder.Services.AddEntityFrameworkMySQL().AddDbContext < DataContext > (options => {
 //      options.UseMySQL(builder.Configuration.GetConnectionString("Default"));
 //   });

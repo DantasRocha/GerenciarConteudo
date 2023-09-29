@@ -1,4 +1,3 @@
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using pipocaWebApi;
 public partial class DataContext : DbContext
@@ -14,8 +13,8 @@ public partial class DataContext : DbContext
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 {    
      if (!optionsBuilder.IsConfigured){            
-             var connectionString = Configuration.GetConnectionString("Default");
-            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+             string? connectionString = Configuration.GetConnectionString("Default");
+            optionsBuilder.UseMySQL(connectionString);
      }
    
 }
